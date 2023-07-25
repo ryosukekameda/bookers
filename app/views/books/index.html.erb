@@ -2,13 +2,23 @@
 
 <% @books.each do |book| %>
 
-<p>Title</p>
-<span><%= book.title %></span>
+<table>
+  <thead>
+      <tr>
+          <th>Title</th>
+          <th>Body</th>
+          <th colspan="3"></th>
+      </tr>
+  </thead>
+</table>
+<tbody>
+  <tr>
+      <td><%= link_to book.title, "/books/#{book.id}" %></td>
+      <td><%= link_to book.body, "/books/#{book.id}" %></td>
+      <td><a href="/books/show">show</a></td>
+      <td><a href="/books/rdit">edit</a></td>
+      <td><a>destroy</a></td>
+  </tr>
+</tbody>
 
-<p>Body</p>
-<span><%= book.body %></span>
-
-<a href="/books/show">show</a>
-<a href="/books/edit">edit</a>
-<a>destroy</a>
 <% end %>
